@@ -3,9 +3,9 @@
 /*
 Plugin Name: JH 404 Logger
 Plugin URI: http://www.joehoyle.co.uk/jh-404-logger/
-Description: Admin dashbortd panel for logging 404s
+Description: Admin dashboard panel for logging 404s
 Author: Joe Hoyle
-Version: 0.1
+Version: 1.1
 Author URI: http://www.joehoyle.co.uk/
 */
 

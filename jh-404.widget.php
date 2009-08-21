@@ -13,7 +13,7 @@ function jh_404_widget() {
 		</thead>
 		<tbody>
 			<?php 
-			if( !empty($log) ) {
+			if( !empty($log) && is_array( $log ) ) {
 				jh_404_table_body_content($log);
 			}
 			else { ?>
@@ -32,9 +32,16 @@ function jh_404_widget() {
 
 function jh_404_table_body_content( $log ) {
 	?>
-	<?php foreach( $log as $url => $l ) : ?>
+	<?php foreach( (array) $log as $url => $l ) : ?>
 	    <tr>
-	    	<td><?php echo $url ?></td>
+	    	<td><?php echo $url ?> 
+	    		<span class="actions">
+	    			<a class="view-page" href="<?php echo get_bloginfo('url') . $url ?>" target="_blank" title="View Page">View Page</a>
+	    			<?php if( $l['referer'] ) : ?>
+	    				<a class="view-referer" href="<?php echo $l['referer'] ?>" target="_blank" title="View Referer">View Referer</a>
+	    			<?php endif; ?>
+	    		</span>
+	    	</td>
 	    	<td><?php echo count( $l['date'] ) ?></td>
 	    	<td class="td-date"><?php echo date('jS M y H:i:s', end($l['date'] ) ); ?> </td>
 	    	<td><a href="#" rel="<?php echo $url ?>" class="delete-url" title="Delete URL">X</a></td>

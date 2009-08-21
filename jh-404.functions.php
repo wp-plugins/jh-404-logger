@@ -9,12 +9,16 @@ function jh_404_log() {
 	$logs = (array) get_option('jh_404_log');
 	$logs[$_SERVER["REQUEST_URI"]]['date'][] = time();
 	
+	if( $_SERVER['HTTP_REFERER'] )
+		$logs[$_SERVER["REQUEST_URI"]]['referer'] = $_SERVER['HTTP_REFERER'];
+	
 	update_option('jh_404_log', array_filter( $logs ) );
 	
 }
 
 function jh_404_get_log() {
 	$log = (array) get_option('jh_404_log');
+	
 	$dates = array();
 	foreach( $log as $url => $l ) {
 		foreach( (array) $l['date'] as $date ) {
@@ -38,6 +42,7 @@ function jh_404_get_log() {
 	}
 	
 	$log = $t_log;
+
 	return $log;
 }
 ?>

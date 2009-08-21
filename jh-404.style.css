@@ -10,3 +10,7 @@
 #jh-404-widget table thead th.td-delete { width: 5%; }
 
 #jh-404-loading { background: url(images/loading.gif); display: block; float: left; width: 16px; height: 16px; text-indent: -9999px; display: none; margin-right: 5px; }
+
+#jh-404-widget table tbody td .actions { display: block; float: right; }
+#jh-404-widget table tbody td a.view-page { display: block; width: 12px; height: 11px; text-indent: -9999px; background: url(images/external-link.png); float: left; margin-right: 5px }
+#jh-404-widget table tbody td a.view-referer { display: block; width: 12px; height: 11px; text-indent: -9999px; background: url(images/incoming-link.png); float: left; margin-right: 5px }
